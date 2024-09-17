@@ -71,13 +71,21 @@ class UserRoleAndPermissionSeeder extends Seeder
         //     'category-delete',
         // ]);
 
-        $shopOwnerUser=User::create([
+        $shopOwnerUser1=User::create([
             'name' => 'ShopOwner User', // Replace with your desired name
             'email' => 'shopowner@gmail.com', // Replace with your desired email
             'password' => Hash::make('12345678'), // Replace with a strong password
         ]);
 
-        $shopOwnerUser->assignRole('ShopOwner');
+        $shopOwnerUser1->assignRole('ShopOwner');
+
+        $shopOwnerUser2=User::create([
+            'name' => 'ShopOwner User 2', // Replace with your desired name
+            'email' => 'shopowner2@gmail.com', // Replace with your desired email
+            'password' => Hash::make('12345678'), // Replace with a strong password
+        ]);
+
+        $shopOwnerUser2->assignRole('ShopOwner');
 
     }
 }
