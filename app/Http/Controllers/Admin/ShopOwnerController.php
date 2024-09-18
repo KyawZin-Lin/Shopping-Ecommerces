@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Interfaces\Admin\ShopOwnerInterface;
+use App\Models\Admin\Duration;
 use App\Models\Admin\Package;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -59,13 +60,19 @@ class ShopOwnerController extends Controller
     public function assignPackagePage(string $id){
         $shopOwner = User::find($id);
         $packages= Package::all();
-        return view('admin-dashboard.users.assign-package', compact('shopOwner', 'packages'));
+        $durations = Duration::all();
+        return view('admin-dashboard.users.assign-package', compact('shopOwner', 'packages','durations'));
     }
 
     public function assignPackage(string $id){
        $this->shopOwnerInterface->assigningPackageToShopOwner($id);
         return redirect()->route('shop-owners.index')->with('success', 'Successfully Assigned Package and Permissions');
 
+    }
+
+    public function confirm(string $id){
+        $this->shopOwnerInterface->packageConfirm($id);
+        return redirect()->route('shop-owners.index')->with('success', 'Successfully Started For Package ');
     }
 
     /**

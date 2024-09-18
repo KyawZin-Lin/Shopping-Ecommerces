@@ -9,7 +9,7 @@
                     {{-- <small class="text-body float-end">Default label</small> --}}
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('shop-owners.assign',$shopOwner->id) }}" method="POST">
+                    <form action="{{ route('shop-owners.assign', $shopOwner->id) }}" method="POST">
 
 
                         @csrf
@@ -27,9 +27,21 @@
                                     <select style="width: 100%;" class="package-select" name="package_id" id="">
                                         <option></option>
                                         @foreach ($packages as $package)
-                                            <option @if ($shopOwner->package?->id == $package->id)
-                                                selected
-                                            @endif value="{{ $package->id }}">{{ $package->name }}</option>
+                                            <option @if ($shopOwner->package?->id == $package->id) selected @endif
+                                                value="{{ $package->id }}">{{ $package->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-6">
+                                    <label class="form-label" for="basic-default-fullname">Duration</label>
+                                    <select style="width: 100%;" class="duration-select" name="duration" id="">
+                                        <option></option>
+                                        @foreach ($durations as $duration)
+                                            <option @if ($shopOwner->duration == $duration->month) selected @endif
+                                                value="{{ $duration->month }}">{{ $duration->month }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -53,6 +65,14 @@
                 placeholder: "Select a Package",
                 allowClear: true
             });
+            $('.duration-select').select2({
+                theme: "classic",
+                width: 'resolve',
+                placeholder: "Select a Duration",
+                allowClear: true
+            });
+
+
         });
     </script>
 @endsection
