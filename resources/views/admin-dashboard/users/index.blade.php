@@ -12,7 +12,11 @@
                         <th>Email</th>
                         <th>Role</th>
                         <th>Package Type</th>
+                        <th>Register Date</th>
                         <th>Start Date</th>
+                        <th>Renew  Date</th>
+                        <th>End Date</th>
+
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -31,7 +35,16 @@
                             </td>
                             <td>{{ $shopOwner->package?->name }}</td>
                             <td>
+                                {{ $shopOwner->register_date }}
+                            </td>
+                            <td>
                                 {{ $shopOwner->start_date }}
+                            </td>
+                            <td>
+                                {{ $shopOwner->renew_date }}
+                            </td>
+                            <td>
+                                {{ $shopOwner->end_date }}
                             </td>
                             <td>
                                 <div class="dropdown">
@@ -40,10 +53,18 @@
                                         <i class="bx bx-dots-vertical-rounded"></i>
                                     </button>
                                     <div class="dropdown-menu">
+
+
                                         <a class="dropdown-item"
                                             href="{{ route('shop-owners.assignPage', $shopOwner->id) }}"><i
                                                 class="fa-solid fa-user-plus me-1"></i>
                                             Assigning Package</a>
+
+                                        <a class="dropdown-item"
+                                            href="{{ route('shop-owners.confirm', $shopOwner->id) }}"
+                                            onclick="return confirm('Are you sure you want to start?');"> <i
+                                                class="fa-solid fa-user-check"></i>
+                                            Start</a>
 
                                         <a class="dropdown-item" href="javascript:void(0);"><i
                                                 class="fa-solid fa-pen-to-square me-1"></i>

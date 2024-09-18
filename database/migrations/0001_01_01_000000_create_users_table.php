@@ -19,6 +19,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->foreignIdFor(Package::class)->nullable();
+            $table->string('duration')->nullable();
+            $table->string('register_date')->nullable();
             $table->string('start_date')->nullable();
             $table->string('re_new_date')->nullable();
             $table->string('end_date')->nullable();

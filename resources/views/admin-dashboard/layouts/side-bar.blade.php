@@ -87,11 +87,11 @@
                        </a>
                    </li>
                    <li class="menu-item">
-                       <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-ecommerce-dashboard.html"
-                           target="_blank" class="menu-link">
-                           <div class="text-truncate" data-i18n="eCommerce">eCommerce</div>
-                           <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro
-                           </div>
+                       <a href="{{route('durations.index')}}"
+                            class="menu-link">
+                           <div class="text-truncate" data-i18n="eCommerce">Durations</div>
+                           {{-- <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro
+                           </div> --}}
                        </a>
                    </li>
                    <li class="menu-item">

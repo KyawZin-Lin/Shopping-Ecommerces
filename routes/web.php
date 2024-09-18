@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DurationController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\ShopOwnerController;
 use App\Http\Controllers\ProfileController;
@@ -28,11 +29,14 @@ Route::middleware('auth', 'role:SuperAdmin')->prefix('admin')->group(function ()
     Route::resources([
         'shop-owners'=>ShopOwnerController::class,
         'packages'=>PackageController::class,
+        'durations'=>DurationController::class
 
     ]);
 
     Route::get('shop-owners/{id}/assign/package',[ShopOwnerController::class,'assignPackagePage'])->name('shop-owners.assignPage');
     Route::post('shop-owners/{id}/assign/package',[ShopOwnerController::class,'assignPackage'])->name('shop-owners.assign');
+    Route::get('shop-owners/{id}/start/confirm',[ShopOwnerController::class,'confirm'])->name('shop-owners.confirm');
+
 
 });
 
