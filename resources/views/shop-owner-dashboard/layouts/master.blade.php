@@ -11,15 +11,15 @@
     <meta name="keywords"
         content="Bootstrap admin template, Dashboard UI Kit, Dashboard Template, Backend Panel, react dashboard, angular dashboard">
     <meta name="author" content="Codedthemes">
-    <link rel="icon" href="{{asset('shop-owner/assets/images/favicon.svg')}}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('shop-owner/assets/images/favicon.svg') }}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('shop-owner/assets/fonts/phosphor/duotone/style.css')}}">
-    <link rel="stylesheet" href="{{asset('shop-owner/assets/fonts/tabler-icons.min.css')}}">
-    <link rel="stylesheet" href="{{asset('shop-owner/assets/fonts/feather.css')}}">
-    <link rel="stylesheet" href="{{asset('shop-owner/assets/fonts/fontawesome.css')}}">
-    <link rel="stylesheet" href="{{asset('shop-owner/assets/fonts/material.css')}}">
-    <link rel="stylesheet" href="{{asset('shop-owner/assets/css/style.css')}}" id="main-style-link">
-    <link rel="stylesheet" href="{{asset('shop-owner/assets/css/style-preset.css')}}">
+    <link rel="stylesheet" href="{{ asset('shop-owner/assets/fonts/phosphor/duotone/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('shop-owner/assets/fonts/tabler-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('shop-owner/assets/fonts/feather.css') }}">
+    <link rel="stylesheet" href="{{ asset('shop-owner/assets/fonts/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('shop-owner/assets/fonts/material.css') }}">
+    <link rel="stylesheet" href="{{ asset('shop-owner/assets/css/style.css') }}" id="main-style-link">
+    <link rel="stylesheet" href="{{ asset('shop-owner/assets/css/style-preset.css') }}">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-14K1GBX9FG"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -75,6 +75,12 @@
     @include('shop-owner-dashboard.layouts.header')
     <div class="pc-container">
         <div class="pc-content">
+            @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             @yield('content')
         </div>
     </div>
@@ -621,16 +627,16 @@
         </div>
     </div> --}}
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="{{asset('shop-owner/assets/js/plugins/apexcharts.min.js')}}"></script>
-    <script src="{{asset('shop-owner/assets/js/plugins/jsvectormap.min.js')}}"></script>
-    <script src="{{asset('shop-owner/assets/js/plugins/world.js')}}"></script>
-    <script src="{{asset('shop-owner/assets/js/pages/dashboard-default.js')}}"></script>
-    <script src="{{asset('shop-owner/assets/js/plugins/popper.min.js')}}"></script>
-    <script src="{{asset('shop-owner/assets/js/plugins/simplebar.min.js')}}"></script>
-    <script src="{{asset('shop-owner/assets/js/plugins/bootstrap.min.js')}}"></script>
-    <script src="{{asset('shop-owner/assets/js/fonts/custom-font.js')}}"></script>
-    <script src="{{asset('shop-owner/assets/js/pcoded.js')}}"></script>
-    <script src="{{asset('shop-owner/assets/js/plugins/feather.min.js')}}"></script>
+    <script src="{{ asset('shop-owner/assets/js/plugins/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('shop-owner/assets/js/plugins/jsvectormap.min.js') }}"></script>
+    <script src="{{ asset('shop-owner/assets/js/plugins/world.js') }}"></script>
+    <script src="{{ asset('shop-owner/assets/js/pages/dashboard-default.js') }}"></script>
+    <script src="{{ asset('shop-owner/assets/js/plugins/popper.min.js') }}"></script>
+    <script src="{{ asset('shop-owner/assets/js/plugins/simplebar.min.js') }}"></script>
+    <script src="{{ asset('shop-owner/assets/js/plugins/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('shop-owner/assets/js/fonts/custom-font.js') }}"></script>
+    <script src="{{ asset('shop-owner/assets/js/pcoded.js') }}"></script>
+    <script src="{{ asset('shop-owner/assets/js/plugins/feather.min.js') }}"></script>
     <script>
         layout_change('light');
     </script>

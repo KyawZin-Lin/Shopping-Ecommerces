@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ShopOwner\CategoryController;
 use App\Http\Middleware\ShopOwnerAuthenticated;
 use Illuminate\Support\Facades\Route;
 
@@ -10,3 +11,9 @@ Route::get('/dashboard/shop',function(){
 Route::get('/login',function(){
     return view('shop-owner-dashboard.auth.login');
 })->name('login');
+
+Route::middleware(ShopOwnerAuthenticated::class)->group(function () {
+    Route::resources([
+        'categories'=>CategoryController::class,
+    ]);
+});

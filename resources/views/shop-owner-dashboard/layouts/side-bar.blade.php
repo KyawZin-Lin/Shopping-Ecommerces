@@ -1,8 +1,9 @@
 <nav class="pc-sidebar">
     <div class="navbar-wrapper">
         <div class="m-header">
-            <a href="../dashboard/index.html" class="b-brand text-primary">
-                <img src="../assets/images/logo-white.svg" class="img-fluid logo-lg" alt="logo">
+            <a href="" class="b-brand text-primary">
+                {{-- <img src="{{asset('shop-owner/assets/images/logo-white.svg')}}" class="img-fluid logo-lg" alt="logo"> --}}
+                <p>SPACE FOR LOGO</p>
             </a>
         </div>
         <div class="navbar-content">
@@ -12,7 +13,7 @@
                 </li>
 
                 <li class="pc-item">
-                    <a href="{{route('shop-owner.dashboard')}}" class="pc-link">
+                    <a href="{{ route('shop-owner.dashboard') }}" class="pc-link">
                         <span class="pc-micon">
                             <i data-feather="home"></i>
                         </span>
@@ -31,10 +32,12 @@
                         <span class="pc-badge">5</span>
                     </a>
                     <ul class="pc-submenu">
-                        <li class="pc-item">
-                            <a class="pc-link" href="../dashboard/index.html">Default</a>
-                        </li>
-                        <li class="pc-item">
+                        @can('category-list')
+                            <li class="pc-item">
+                                <a class="pc-link" href="{{route('shop-owner.categories.index')}}">Category</a>
+                            </li>
+                        @endcan
+                        {{-- <li class="pc-item">
                             <a class="pc-link" href="../dashboard/ecommerce.html">Ecommerce</a>
                         </li>
                         <li class="pc-item">
@@ -51,7 +54,7 @@
                         </li>
                         <li class="pc-item">
                             <a class="pc-link" href="../dashboard/project.html">Project</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </li>
                 {{-- <li class="pc-item pc-hasmenu">
