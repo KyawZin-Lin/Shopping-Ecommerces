@@ -87,19 +87,17 @@
                        </a>
                    </li>
                    <li class="menu-item">
-                       <a href="{{route('durations.index')}}"
-                            class="menu-link">
+                       <a href="{{ route('durations.index') }}" class="menu-link">
                            <div class="text-truncate" data-i18n="eCommerce">Durations</div>
                            {{-- <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro
                            </div> --}}
                        </a>
                    </li>
                    <li class="menu-item">
-                       <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-logistics-dashboard.html"
-                           target="_blank" class="menu-link">
-                           <div class="text-truncate" data-i18n="Logistics">Logistics</div>
-                           <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro
-                           </div>
+                       <a href="{{route('applications.index')}}" class="menu-link">
+                           <div class="text-truncate" data-i18n="Logistics">Application Lists</div>
+                           {{-- <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro
+                           </div> --}}
                        </a>
                    </li>
                    <li class="menu-item">
@@ -518,6 +516,6 @@
 
        {{-- <button onclick="closeSideBar()" class="btn"><</button> --}}
        {{-- <i class="bx bx-menu" onclick="toggleSideBar()" style="cursor: pointer;"></i> --}}
-       <button  onclick="toggleSideBar()"><i class="bx bx-menu" ></i></button>
+       <button onclick="toggleSideBar()"><i class="bx bx-menu"></i></button>
    </aside>
    <!-- / Menu -->
