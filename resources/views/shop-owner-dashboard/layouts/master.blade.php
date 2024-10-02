@@ -20,6 +20,13 @@
     <link rel="stylesheet" href="{{ asset('shop-owner/assets/fonts/material.css') }}">
     <link rel="stylesheet" href="{{ asset('shop-owner/assets/css/style.css') }}" id="main-style-link">
     <link rel="stylesheet" href="{{ asset('shop-owner/assets/css/style-preset.css') }}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-14K1GBX9FG"></script>
     <script>
         window.dataLayer = window.dataLayer || [];

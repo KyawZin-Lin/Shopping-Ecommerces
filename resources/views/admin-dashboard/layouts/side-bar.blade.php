@@ -94,17 +94,33 @@
                        </a>
                    </li>
                    <li class="menu-item">
-                       <a href="{{route('applications.index')}}" class="menu-link">
+                       <a href="{{ route('applications.index') }}" class="menu-link">
                            <div class="text-truncate" data-i18n="Logistics">Application Lists</div>
                            {{-- <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro
                            </div> --}}
                        </a>
                    </li>
                    <li class="menu-item">
-                       <a href="app-academy-dashboard.html" target="_blank" class="menu-link">
-                           <div class="text-truncate" data-i18n="Academy">Academy</div>
-                           <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro
-                           </div>
+                       <a href="{{ route('categories.index') }}" class="menu-link">
+                           <div class="text-truncate" data-i18n="Academy">Categories</div>
+                           {{-- <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro
+                           </div> --}}
+                       </a>
+                   </li>
+
+                   <li class="menu-item">
+                       <a href="{{ route('sub-categories.index') }}" class="menu-link">
+                           <div class="text-truncate" data-i18n="Academy">Sub Categories</div>
+                           {{-- <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro
+                        </div> --}}
+                       </a>
+                   </li>
+
+                   <li class="menu-item">
+                       <a href="{{ route('brands.index') }}" class="menu-link">
+                           <div class="text-truncate" data-i18n="Academy">Brands</div>
+                           {{-- <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro
+                        </div> --}}
                        </a>
                    </li>
                </ul>

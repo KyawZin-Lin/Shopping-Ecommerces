@@ -34,7 +34,18 @@
                     <ul class="pc-submenu">
                         @can('category-list')
                             <li class="pc-item">
-                                <a class="pc-link" href="{{route('shop-owner.categories.index')}}">Category</a>
+                                <a class="pc-link" href="{{ route('shop-owner.categories.index') }}">Category</a>
+                            </li>
+                        @endcan
+                        @can('sub-category-list')
+                            <li class="pc-item">
+                                <a class="pc-link" href="{{ route('shop-owner.sub-categories.index') }}">SubCategory</a>
+                            </li>
+                        @endcan
+
+                        @can('brand-list')
+                            <li class="pc-item">
+                                <a class="pc-link" href="{{ route('shop-owner.sub-categories.index') }}">SubCategory</a>
                             </li>
                         @endcan
                         {{-- <li class="pc-item">

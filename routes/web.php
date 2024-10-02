@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\ApplicationController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DurationController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\ShopOwnerController;
+use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\BrandController;
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,7 +35,10 @@ Route::middleware('auth', 'role:SuperAdmin')->prefix('admin')->group(function ()
         'shop-owners'=>ShopOwnerController::class,
         'packages'=>PackageController::class,
         'durations'=>DurationController::class,
-        'applications'=>ApplicationController::class
+        'applications'=>ApplicationController::class,
+        'categories'=>CategoryController::class,
+        'sub-categories'=>SubCategoryController::class,
+        'brands'=>BrandController::class
 
     ]);
 

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ShopOwner\BrandController;
 use App\Http\Controllers\ShopOwner\CategoryController;
+use App\Http\Controllers\ShopOwner\SubCategoryController;
 use App\Http\Middleware\ShopOwnerAuthenticated;
 use Illuminate\Support\Facades\Route;
 
@@ -15,5 +17,8 @@ Route::get('/login',function(){
 Route::middleware(ShopOwnerAuthenticated::class)->group(function () {
     Route::resources([
         'categories'=>CategoryController::class,
+        'sub-categories'=>SubCategoryController::class,
+        'brands'=>BrandController::class,
+
     ]);
 });
