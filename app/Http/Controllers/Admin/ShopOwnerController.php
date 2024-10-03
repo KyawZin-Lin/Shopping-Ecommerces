@@ -8,6 +8,7 @@ use App\Models\Admin\Duration;
 use App\Models\Admin\Package;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class ShopOwnerController extends Controller
 {
@@ -30,7 +31,10 @@ class ShopOwnerController extends Controller
      */
     public function create()
     {
-        //
+        $packages= Package::all();
+        $durations = Duration::all();
+        $roles=Role::all();
+        return view('admin-dashboard.users.create', compact('packages','durations','roles'));
     }
 
     /**
@@ -38,7 +42,8 @@ class ShopOwnerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->shopOwnerInterface->storeShopOwnerUser();
+        return redirect()->route('shop-owners.index')->with('success', 'Shop Owner created successfully.');
     }
 
     /**

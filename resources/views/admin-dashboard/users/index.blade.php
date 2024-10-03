@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="card">
-        <h5 class="card-header">Shop Owner Lists</h5>
+        <h5 class="card-header d-flex justify-content-between">Shop Owner Lists <a class="btn btn-success"
+                href="{{ route('shop-owners.create') }}">Create</a></h5>
         <div class="table-responsive text-nowrap">
             <table class="table">
                 <thead>
@@ -14,7 +15,7 @@
                         <th>Package Type</th>
                         <th>Register Date</th>
                         <th>Start Date</th>
-                        <th>Renew  Date</th>
+                        <th>Renew Date</th>
                         <th>End Date</th>
 
                         <th>Actions</th>
@@ -60,8 +61,7 @@
                                                 class="fa-solid fa-user-plus me-1"></i>
                                             Assigning Package</a>
 
-                                        <a class="dropdown-item"
-                                            href="{{ route('shop-owners.confirm', $shopOwner->id) }}"
+                                        <a class="dropdown-item" href="{{ route('shop-owners.confirm', $shopOwner->id) }}"
                                             onclick="return confirm('Are you sure you want to start?');"> <i
                                                 class="fa-solid fa-user-check"></i>
                                             Start</a>

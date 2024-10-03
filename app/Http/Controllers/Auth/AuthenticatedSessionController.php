@@ -35,7 +35,7 @@ class AuthenticatedSessionController extends Controller
     if ($user->hasRole('SuperAdmin')) {
         return redirect('/');  // Redirect to admin dashboard
     } elseif ($user->hasRole('ShopOwner')) {
-        return redirect()->route('dashboard');  // Redirect to shop owner dashboard
+        return redirect()->route('shop-owner.dashboard');  // Redirect to shop owner dashboard
     }
 
     }
@@ -45,12 +45,20 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        // dd(auth()->user()->hasRole('SuperAdmin'), route('shop-owner.login'));
+        $route='';
+        if(auth()->user()->hasRole('SuperAdmin')){
+            $route=route('login');
+        }else{
+            $route=route('shop-owner.login');  // Redirect to shop owner login page if shop owner
+        }
+        // dd($route);
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect($route);
     }
 }

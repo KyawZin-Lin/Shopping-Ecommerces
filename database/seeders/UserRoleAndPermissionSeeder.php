@@ -44,6 +44,16 @@ class UserRoleAndPermissionSeeder extends Seeder
             'category-create',
             'category-edit',
             'category-delete',
+
+            'sub-category-list',
+            'sub-category-create',
+            'sub-category-edit',
+            'sub-category-delete',
+
+            'brand-list',
+            'brand-create',
+            'brand-edit',
+            'brand-delete',
         ];
 
 
@@ -64,12 +74,6 @@ class UserRoleAndPermissionSeeder extends Seeder
 
 
         $shopOwnerRole=Role::create(['name' => "ShopOwner"]);
-        // $shopOwnerRole->givePermissionTo([
-        //     'category-list',
-        //     'category-create',
-        //     'category-edit',
-        //     'category-delete',
-        // ]);
 
         $shopOwnerUser1=User::create([
             'name' => 'ShopOwner User', // Replace with your desired name
