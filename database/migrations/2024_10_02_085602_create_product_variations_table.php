@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Product::class);
             $table->string('name');
-            $table->decimal('price', 8, 2)->nullable();
+            $table->integer('price')->nullable();
             $table->integer('quantity')->default(0);
             $table->timestamps();
         });

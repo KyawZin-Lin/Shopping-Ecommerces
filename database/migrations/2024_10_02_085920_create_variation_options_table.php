@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('variation_options', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(ProductVariation::class);
-            $table->string('option_name');  // Name of the option (e.g., "Size", "Color")
-            $table->string('option_value');  // Value for the option (e.g., "Small", "Large", "Red")
+            $table->string('option_name')->nullable();  // Name of the option (e.g., "Size", "Color")
+            $table->string('option_value')->nullable();  // Value for the option (e.g., "Small", "Large", "Red")
             $table->timestamps();
         });
     }
