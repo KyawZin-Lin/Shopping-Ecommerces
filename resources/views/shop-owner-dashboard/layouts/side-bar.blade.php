@@ -20,35 +20,47 @@
                         <span class="pc-mtext">Dashboard</span>
                     </a>
                 </li>
-                <li class="pc-item pc-hasmenu">
-                    <a href="#!" class="pc-link">
-                        <span class="pc-micon">
-                            <i data-feather="grid"></i>
-                        </span>
-                        <span class="pc-mtext">Lists</span>
-                        <span class="pc-arrow">
-                            <i class="ti ti-chevron-right"></i>
-                        </span>
-                        <span class="pc-badge">5</span>
-                    </a>
-                    <ul class="pc-submenu">
-                        @can('category-list')
-                            <li class="pc-item">
-                                <a class="pc-link" href="{{ route('shop-owner.categories.index') }}">Category</a>
-                            </li>
-                        @endcan
-                        @can('sub-category-list')
-                            <li class="pc-item">
-                                <a class="pc-link" href="{{ route('shop-owner.sub-categories.index') }}">SubCategory</a>
-                            </li>
-                        @endcan
+                @if (session()->has('business_type'))
+                    <li class="pc-item pc-hasmenu">
+                        <a href="#!" class="pc-link">
+                            <span class="pc-micon">
+                                <i data-feather="grid"></i>
+                            </span>
+                            <span class="pc-mtext">{{ session()->get('business_type') }}</span>
+                            <span class="pc-arrow">
+                                <i class="ti ti-chevron-right"></i>
+                            </span>
+                            <span class="pc-badge">5</span>
+                        </a>
+                        <ul class="pc-submenu">
 
-                        @can('brand-list')
-                            <li class="pc-item">
-                                <a class="pc-link" href="{{ route('shop-owner.sub-categories.index') }}">SubCategory</a>
-                            </li>
-                        @endcan
-                        {{-- <li class="pc-item">
+
+                            @if (session()->get('business_type') !== 'Perfume')
+                                @can('category-list')
+                                    <li class="pc-item">
+                                        <a class="pc-link" href="{{ route('shop-owner.categories.index') }}">Category</a>
+                                    </li>
+                                @endcan
+                                @can('sub-category-list')
+                                    <li class="pc-item">
+                                        <a class="pc-link"
+                                            href="{{ route('shop-owner.sub-categories.index') }}">SubCategory</a>
+                                    </li>
+                                @endcan
+                            @endif
+
+                            @can('brand-list')
+                                <li class="pc-item">
+                                    <a class="pc-link" href="{{ route('shop-owner.brands.index') }}">Brand</a>
+                                </li>
+                            @endcan
+
+                            @can('product-list')
+                                <li class="pc-item">
+                                    <a class="pc-link" href="{{ route('shop-owner.products.index') }}">Product</a>
+                                </li>
+                            @endcan
+                            {{-- <li class="pc-item">
                             <a class="pc-link" href="../dashboard/ecommerce.html">Ecommerce</a>
                         </li>
                         <li class="pc-item">
@@ -66,8 +78,9 @@
                         <li class="pc-item">
                             <a class="pc-link" href="../dashboard/project.html">Project</a>
                         </li> --}}
-                    </ul>
-                </li>
+                        </ul>
+                    </li>
+                @endif
                 {{-- <li class="pc-item pc-hasmenu">
                     <a href="#!" class="pc-link">
                         <span class="pc-micon">

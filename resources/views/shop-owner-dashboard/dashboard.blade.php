@@ -14,7 +14,7 @@
                             <a href="../dashboard/index.html">Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="javascript: void(0)" >Dashboard</a>
+                            <a href="javascript: void(0)">Dashboard</a>
                         </li>
                         {{-- <li class="breadcrumb-item" aria-current="page">Home</li> --}}
                     </ul>
@@ -22,6 +22,36 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <h3>Application Lists</h3>
+        @foreach ($applications as $application)
+            <div class="col-md-6 col-xl-4">
+                <div class="card">
+                    <div class="card-body">
+                        {{-- <h6 class="mb-4">{{$application->name}}</h6> --}}
+                        <div class="row d-flex align-items-center">
+                            <div class="col-9">
+                                <h4 class="f-w-300 d-flex align-items-center m-b-0">
+
+                                    {{$application->name}}
+                                </h4>
+                            </div>
+                            <div class="col-3 text-end">
+                                <a href="{{route('shop-owner.dashboard.choose',$application->id)}}"><i class="feather icon-arrow-right text-success f-30 m-r-10"></i></a>
+                            </div>
+                        </div>
+                        <div class="progress m-t-30" style="height: 7px">
+                            <div class="progress-bar bg-brand-color-1" role="progressbar" style="width: 100%"
+                                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+    <hr>
     <div class="row">
         <div class="col-md-6 col-xl-4">
             <div class="card">

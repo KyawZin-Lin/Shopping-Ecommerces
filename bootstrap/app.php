@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\CheckApplicationKey;
 use App\Http\Middleware\ShopOwnerAuthenticated;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -26,6 +27,7 @@ return Application::configure(basePath: dirname(__DIR__))
         'permission' => PermissionMiddleware::class,
         'role_or_permission' => RoleOrPermissionMiddleware::class,
         'shop_owner_auth'=>ShopOwnerAuthenticated::class,
+        'check_application_key' => CheckApplicationKey::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

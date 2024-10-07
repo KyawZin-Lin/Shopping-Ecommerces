@@ -93,6 +93,14 @@
                            </div> --}}
                        </a>
                    </li>
+
+                   <li class="menu-item">
+                    <a href="{{ route('business-types.index') }}" class="menu-link">
+                        <div class="text-truncate" data-i18n="eCommerce">Business Types</div>
+                        {{-- <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro
+                        </div> --}}
+                    </a>
+                </li>
                    <li class="menu-item">
                        <a href="{{ route('applications.index') }}" class="menu-link">
                            <div class="text-truncate" data-i18n="Logistics">Application Lists</div>

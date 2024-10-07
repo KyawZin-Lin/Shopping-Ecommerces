@@ -54,11 +54,27 @@ class UserRoleAndPermissionSeeder extends Seeder
             'brand-create',
             'brand-edit',
             'brand-delete',
+
+            'product-list',
+            'product-create',
+            'product-edit',
+            'product-delete',
+        ];
+
+        $applicationPermissions=[
+            'inventory-list',
+            'inventory-create',
+            'inventory-edit',
+            'inventory-delete',
         ];
 
 
         foreach ($permissions as $permission) {
             Permission::create(['name' => $permission]);
+        }
+
+        foreach($applicationPermissions as $shopPermission) {
+            Permission::create(['name' => $shopPermission,'guard_name'=>'application']);
         }
 
         $superAdminRole = Role::create(['name' => "SuperAdmin"]);
