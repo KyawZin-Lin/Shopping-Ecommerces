@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\ShopOwnerController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\BrandController;
-
+use App\Http\Controllers\Admin\BusinessTypeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,7 +38,8 @@ Route::middleware('auth', 'role:SuperAdmin')->prefix('admin')->group(function ()
         'applications'=>ApplicationController::class,
         'categories'=>CategoryController::class,
         'sub-categories'=>SubCategoryController::class,
-        'brands'=>BrandController::class
+        'brands'=>BrandController::class,
+        'business-types'=>BusinessTypeController::class,
 
     ]);
 

@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Interfaces\Admin\ApplicationInterface;
 use App\Interfaces\Admin\ShopOwnerInterface;
 use App\Models\Admin\Application;
+use App\Models\Admin\BusinessType;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 
 class ApplicationController extends Controller
 {
@@ -30,8 +32,10 @@ class ApplicationController extends Controller
     public function create()
     {
         $shopOwners = $this->shopOwnerInterface->getAllShopOwnerUsers();
+        $permissions = Permission::where('guard_name', 'application')->get();
+        $businessTypes=BusinessType::all();
 
-        return view('admin-dashboard.applications.create',compact('shopOwners'));
+        return view('admin-dashboard.applications.create',compact('shopOwners','permissions','businessTypes'));
     }
 
     /**
@@ -57,8 +61,11 @@ class ApplicationController extends Controller
     public function edit(Application $application)
     {
         $shopOwners = $this->shopOwnerInterface->getAllShopOwnerUsers();
+        $permissions = Permission::where('guard_name', 'application')->get();
+        $businessTypes=BusinessType::all();
 
-        return view('admin-dashboard.applications.edit',compact('application','shopOwners'));
+
+        return view('admin-dashboard.applications.edit',compact('application','shopOwners','permissions','businessTypes'));
     }
 
     /**

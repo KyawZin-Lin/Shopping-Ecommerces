@@ -4,9 +4,11 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Models\Admin\Application;
 use App\Models\Admin\Package;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -52,5 +54,9 @@ class User extends Authenticatable
 
     public function package():BelongsTo{
         return $this->belongsTo(Package::class);
+    }
+
+    public function applications():HasMany{
+        return $this->hasMany(Application::class);
     }
 }
