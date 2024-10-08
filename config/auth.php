@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Admin\Application;
+use App\Models\ShopOwner\Customer;
 
 return [
 
@@ -47,6 +48,11 @@ return [
             'driver' => 'session',
             'provider' => 'applications',
         ],
+
+        'api' => [
+            'driver' => 'passport',
+            'provider' => 'customers',
+        ],
     ],
 
     /*
@@ -75,6 +81,11 @@ return [
         'applications' => [
             'driver' => 'eloquent',
             'model' => Application::class,
+        ],
+
+        'customers' => [
+            'driver' => 'eloquent',
+            'model' => Customer::class,
         ],
 
         // 'users' => [
