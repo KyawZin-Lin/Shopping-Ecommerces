@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CategoryApiController;
+use App\Http\Controllers\Api\Customer\AuthController;
 use App\Http\Controllers\Api\ProductApiController;
 use App\Http\Controllers\Api\SubCategoryApiController;
 use App\Models\Admin\Application;
@@ -9,7 +10,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
-})->middleware('auth:sanctum');
+})->middleware('auth:api');
+
+Route::post('customer/register', [AuthController::class, 'register']);
+Route::post('customer/login', [AuthController::class, 'login']);
+Route::post('customer/logout', [AuthController::class, 'logout'])->middleware('auth:api');
+
 
 
 Route::middleware('check_application_key')->group(function(){
