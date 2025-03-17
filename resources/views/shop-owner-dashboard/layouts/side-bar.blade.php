@@ -20,6 +20,14 @@
                         <span class="pc-mtext">Dashboard</span>
                     </a>
                 </li>
+               {{-- @php
+                    $user = auth()->user();
+                dd(
+                $user->getPermissionsViaRoles(), // Check permissions via roles
+                $user->getDirectPermissions(), // Check direct permissions
+                $user->can('brand-list','web') // Check all permissions
+                );
+               @endphp --}}
                 @if (session()->has('business_type'))
                     <li class="pc-item pc-hasmenu">
                         <a href="#!" class="pc-link">
@@ -49,7 +57,7 @@
                                 @endcan
                             @endif
 
-                            @can('brand-list')
+                            @can('brand-list','web')
                                 <li class="pc-item">
                                     <a class="pc-link" href="{{ route('shop-owner.brands.index') }}">Brand</a>
                                 </li>

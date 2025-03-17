@@ -6,6 +6,8 @@ use App\Interfaces\Admin\ShopOwnerInterface;
 use App\Models\Admin\Package;
 use App\Models\User;
 use Carbon\Carbon;
+use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
@@ -18,6 +20,8 @@ class ShopOwnerRepository implements ShopOwnerInterface{
     }
 
     public function storeShopOwnerUser(){
+       try{
+        DB::beginTransaction();
         $role=Role::where('id',request()->role_id)->first();
         // dd($role,request()->all());
 
@@ -29,24 +33,28 @@ class ShopOwnerRepository implements ShopOwnerInterface{
 
         $shopOwner->assignRole($role->name);
         $this->assigningPackageToShopOwner($shopOwner->id);
+        DB::commit();
+       }catch(Exception $e){
+        return response()->json(['message' => $e->getMessage()]);
+        DB::rollback();
+
+       }
 
     }
 
     public function assigningPackageToShopOwner(string $id){
 
-        // dd(request()->all());
         $shopOwner = User::find($id);
         $role =$shopOwner->roles->first();
         $package = Package::with('packagePermissions')->find(request()->package_id);
-
          // Extract permission IDs from the package
-         $permissionIds = $package->packagePermissions->pluck('id')->toArray();
+         $permissionNames = $package->packagePermissions->pluck('name')->toArray();
         $shopOwner->package_id = request()->package_id;
         $shopOwner->duration=request()->duration;
         $shopOwner->register_date= now()->format('Y-m-d');
 
         $shopOwner->update();
-        $shopOwner->givePermissionTo($permissionIds);
+        $shopOwner->givePermissionTo($permissionNames);
         // $role->syncPermissions($permissionIds);
     }
 
